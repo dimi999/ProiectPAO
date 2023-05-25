@@ -1,19 +1,32 @@
-package Models;
+package model;
 
-public class Products {
+public class Product {
     private static int count = 0;
-    protected int productId, minPrice;
-    protected Users seller;
+    protected int productId;
+    protected int minPrice;
+    protected User seller;
     protected boolean sold;
 
-    public Products() {
+    public int getMinPrice() {
+        return minPrice;
+    }
+
+    public User getSeller() {
+        return seller;
+    }
+
+    public boolean isSold() {
+        return sold;
+    }
+
+    public Product() {
         setProductId(++count);
         minPrice = 0;
         sold = false;
-        seller = new Users();
+        seller = new User();
     }
 
-    public Products(int minPrice, Users seller) {
+    public Product(int minPrice, User seller) {
         setProductId(++count);
         this.minPrice = minPrice;
         sold = false;

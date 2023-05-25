@@ -1,18 +1,23 @@
-package Models;
+package model;
 
-import static java.lang.Math.max;
-
-public class Bids {
+public class Bid {
     private static int count = 0;
     private int bidId, amount;
-    private int bidderId, productId;
+    private int bidderId;
+    private int productId;
 
-    public Bids() {
+    @Override
+    public String toString() {
+        String res = "Bid " + Integer.toString(bidId) + " amount " + Integer.toString(amount);
+        return res;
+    }
+
+    public Bid() {
         setBidId(++count);
         amount = bidderId = productId = 0;
     }
 
-    public Bids(int amount, int bidderId, int productId) {
+    public Bid(int amount, int bidderId, int productId) {
         setBidId(++count);
         this.amount = amount;
         this.bidderId = bidderId;

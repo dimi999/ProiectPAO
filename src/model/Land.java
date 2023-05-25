@@ -1,18 +1,18 @@
-package Models;
+package model;
 
-public class Lands extends Products{
+public class Land extends Product {
     private double area;
     private String location;
     private boolean urban;
 
-    public Lands() {
+    public Land() {
         super();
         area = 0.;
         location = "";
         urban = false;
     }
 
-    public Lands(int minPrice, Users seller, double area, String location, boolean urban) {
+    public Land(int minPrice, User seller, double area, String location, boolean urban) {
         super(minPrice, seller);
         this.area = area;
         this.location = location;

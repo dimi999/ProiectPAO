@@ -1,18 +1,21 @@
-package Models;
+package model;
 
-public class RealEstates extends Products{
-    private int rooms, year;
+public class RealEstate extends Product {
+    private int rooms;
+    private int year;
     private double area;
-    private boolean balcony, garden, parkingSlot;
+    private boolean balcony;
+    private boolean garden;
+    private  boolean parkingSlot;
 
-    public RealEstates() {
+    public RealEstate() {
         super();
         rooms = year = 0;
         area = 0.;
         balcony = garden = parkingSlot = false;
     }
 
-    public RealEstates(int minPrice, Users seller, int rooms, int year, double area, boolean balcony, boolean garden, boolean parkingSlot) {
+    public RealEstate(int minPrice, User seller, int rooms, int year, double area, boolean balcony, boolean garden, boolean parkingSlot) {
         super(minPrice, seller);
         this.rooms = rooms;
         this.year = year;

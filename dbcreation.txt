@@ -1,0 +1,52 @@
+CREATE TABLE bids (
+  bidId int(11) NOT NULL,
+  amount int(11) NOT NULL,
+  bidderId int(11) NOT NULL,
+  productId int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE products (
+  productId int(11) NOT NULL,
+  minPrice int(11) NOT NULL,
+  sellerId int(11) NOT NULL,
+  sold tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE tickets (
+  productId int(11) NOT NULL,
+  eventName varchar(100) NOT NULL,
+  eventDate varchar(100) NOT NULL,
+  boughtPrice int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE users (
+  userId int(11) NOT NULL,
+  name varchar(100) NOT NULL,
+  email varchar(100) NOT NULL,
+  address varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE vehicles (
+  productId int(11) NOT NULL,
+  brand varchar(100) NOT NULL,
+  model varchar(100) NOT NULL,
+  km int(11) NOT NULL,
+  year int(11) NOT NULL,
+  consume double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+ALTER TABLE bids
+  ADD PRIMARY KEY (bidId);
+
+ALTER TABLE products
+  ADD PRIMARY KEY (productId);
+
+ALTER TABLE tickets
+  ADD PRIMARY KEY (productId);
+
+ALTER TABLE users
+  ADD PRIMARY KEY (userId);
+
+ALTER TABLE vehicles
+  ADD PRIMARY KEY (productId);
+COMMIT;
