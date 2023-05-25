@@ -1,3 +1,4 @@
+import exception.UserNotRegistered;
 import model.*;
 import service.AuctionService;
 import service.ProductService;
@@ -37,8 +38,7 @@ public class Main {
         menu.printBids();
         menu.testDb();
         userService.banUser(users.iterator().next());
-        User dummy = new User();
-        dummy = new User("dummy", "dummy@info.ro", "Mihai Bravu 29");
+        User dummy = new User("dummy", "dummy@info.ro", "Mihai Bravu 29");
         userService.insertUser(dummy);
         userService.updateAddress(dummy, "Timpuri Noi 47");
         userService.printUsers();
@@ -46,6 +46,11 @@ public class Main {
     }
 
     private static void testProducts(Set<User> users) throws SQLException {
+        if(users.size() == 0)
+            return;
+        if(users.iterator().next() == null)
+            return;
+
         ProductService productService = new ProductService();
         Ticket dummy = new Ticket(55, users.iterator().next(), "Dummyevent1", "23-05-2024", 48);
         productService.insertTicket(dummy);
@@ -77,7 +82,10 @@ public class Main {
         products.add(new RealEstate(65000, seller, 2, 1990, 63, false, false, true));
     }
 
-    private static void insertBids(Auction auction) throws Exception {
+    private static void insertBids(Auction auction) throws UserNotRegistered, SQLException {
+        if(auction == null)
+            return;
+
         auction.receiveBid(100, auction.getProducts().get(0), auction.getUser(1));
         auction.receiveBid(150, auction.getProducts().get(0), auction.getUser(2));
         auction.receiveBid(100, auction.getProducts().get(1), auction.getUser(1));

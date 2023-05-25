@@ -63,6 +63,8 @@ public class User {
         int ctVehicles = 0;
         int ctRealEstates = 0;
         for(Product product : boughtProducts) {
+            if(product == null)
+                continue;
             Class<? extends Product> productType = product.getClass();
             switch (productType.getName()) {
                 case "model.Ticket":

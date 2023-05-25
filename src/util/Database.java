@@ -1,6 +1,7 @@
 package util;
 
 import database.DatabaseConnection;
+import exception.DatabaseConnectionFailed;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -14,7 +15,7 @@ public class Database {
         try {
             dbconn = DatabaseConnection.getInstance();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new DatabaseConnectionFailed("Database connection failed");
         }
     }
 
@@ -30,5 +31,4 @@ public class Database {
         printAction("createTables");
         dbconn.createTables();
     }
-
 }

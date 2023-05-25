@@ -14,13 +14,9 @@ public final class Audit {
     private Audit() {
     }
 
-    public static void initAudit() {
+    public static void initAudit() throws IOException{
         audit = new File("audit.csv");
-        try {
-            audit.createNewFile();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        audit.createNewFile();
         path = Paths.get(audit.toURI());
     }
 

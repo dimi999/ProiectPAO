@@ -50,7 +50,7 @@ cmake-build-*/
 *.iws
 
 # IntelliJ
-git rm -r --cached FolderName/
+out/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/

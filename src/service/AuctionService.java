@@ -7,8 +7,6 @@ import model.RealEstate;
 import java.sql.SQLException;
 import java.util.List;
 
-import static util.Audit.printAction;
-
 public class AuctionService {
     private Auction auction;
     private DatabaseConnection dbconn;

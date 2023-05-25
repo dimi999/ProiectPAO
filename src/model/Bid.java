@@ -2,7 +2,8 @@ package model;
 
 public class Bid {
     private static int count = 0;
-    private int bidId, amount;
+    private int bidId;
+    private int amount;
     private int bidderId;
     private int productId;
 
