@@ -141,7 +141,7 @@ public class Auction {
 
     public Product mostExpensive() {
         printAction("mostExpensive");
-        Map <Integer, Integer> bidAmounts = new HashMap();
+        Map <Integer, Integer> bidAmounts = new TreeMap();
 
         for(Bid bid : bids) {
             if(bid == null)
